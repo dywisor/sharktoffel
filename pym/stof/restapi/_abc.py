@@ -12,7 +12,7 @@ import abc
 import urllib.parse
 
 
-from ..base import loggable
+from ..abc import loggable
 from . import exc
 
 

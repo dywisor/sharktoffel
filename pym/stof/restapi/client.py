@@ -54,6 +54,9 @@ class APIClient(_abc.AbstractAPIClient):
         session = requests.Session()
 
         try:
+            # do not take proxies, ... from OS environment
+            session.trust_env = False
+
             session.verify = self.verify_cert
 
             session.headers["Host"] = self.real_host

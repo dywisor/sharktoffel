@@ -15,7 +15,6 @@ import contextlib
 import enum
 import logging
 import os
-import signal
 import sys
 
 from typing import Optional, Union
@@ -239,9 +238,6 @@ class MainScript(loggable.AbstractLoggable):
             elif exit_code is False:
                 exit_code = self.EXIT_CODES.EX_ERR
             # --
-
-        finally:
-            signal.signal(signal.SIGUSR1, signal.SIG_DFL)
         # --
 
         return exit_code
